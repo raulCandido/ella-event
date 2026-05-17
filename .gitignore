@@ -1,0 +1,29 @@
+# Next.js
+.next/
+out/
+
+# Dependências
+node_modules/
+
+# Variáveis de ambiente — nunca commitar
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Claude Code — configurações locais da máquina
+# Contém permissões de comandos e URLs internas (incluindo endpoints do Google Forms)
+.claude/settings.local.json
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
