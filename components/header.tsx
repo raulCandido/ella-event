@@ -22,7 +22,7 @@ export default function Header() {
       }}
     >
       <div className="mx-auto max-w-6xl px-6 py-5 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 group">
+        <a href="/" className="flex items-center gap-3 group">
           <span
             className="text-2xl tracking-[0.35em] uppercase"
             style={{
@@ -47,16 +47,21 @@ export default function Header() {
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
-          {["O Evento", "Experiências", "Depoimentos", "Participar"].map((item) => (
+          {[
+            { label: "O Evento", href: "#o-evento" },
+            { label: "Experiências", href: "#experiencias" },
+            { label: "Depoimentos", href: "#depoimentos" },
+            { label: "Participar", href: "#participar" },
+          ].map(({ label, href }) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
+              key={href}
+              href={href}
               className="text-xs tracking-[0.18em] uppercase transition-colors duration-300"
               style={{ color: "rgba(232,213,196,0.55)", fontWeight: 400 }}
               onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#c9a96e")}
               onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(232,213,196,0.55)")}
             >
-              {item}
+              {label}
             </a>
           ))}
         </nav>

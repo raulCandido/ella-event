@@ -1,7 +1,17 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-export default function Hero() {
+interface HeroProps {
+  subtitle?: string;
+  description?: string;
+  cta?: { text: string; href: string };
+}
+
+export default function Hero({
+  subtitle = "Um espaço criado para despertar o que há de mais poderoso em você",
+  description = "Conexão autêntica, bem-estar e empoderamento em cada detalhe — ELLA foi pensado especialmente para você.",
+  cta = { text: "Quero Participar", href: "#participar" },
+}: HeroProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -165,7 +175,6 @@ export default function Hero() {
           />
         </div>
 
-        {/* Welcoming headline */}
         <p
           className="mb-5"
           style={{
@@ -177,10 +186,9 @@ export default function Hero() {
             lineHeight: 1.5,
           }}
         >
-          Sua presença foi nossa maior inspiração
+          {subtitle}
         </p>
 
-        {/* Thank you text */}
         <p
           className="mb-12 mx-auto"
           style={{
@@ -190,12 +198,11 @@ export default function Hero() {
             maxWidth: "28ch",
           }}
         >
-          Obrigada por ter escolhido estar aqui. Sua experiência é o que nos guia para criar momentos cada vez mais bonitos e significativos.
+          {description}
         </p>
 
-        {/* CTA */}
         <a
-          href="#avaliacao"
+          href={cta.href}
           className="btn-gold"
           style={{
             borderRadius: "3rem",
@@ -204,7 +211,7 @@ export default function Hero() {
             letterSpacing: "0.18em",
           }}
         >
-          Avaliar o evento
+          {cta.text}
         </a>
       </div>
 
